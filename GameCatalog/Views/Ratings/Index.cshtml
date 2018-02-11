@@ -1,0 +1,74 @@
+﻿@model IEnumerable<GameCatalog.Data.Entities.Rating>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 style="text-align:center;font-weight:bold">Ratings</h2>
+
+<p><a class="btn btn-primary btn-sm" href="@Url.Action("Create", "Ratings")" style="border-radius: 10px;" role="button">Create New</a></p>
+
+
+
+<div style="background-color:lightblue;opacity:0.9;border-radius: 25px;">
+    @using (Html.BeginForm())
+    {
+
+
+
+        <div class="col-md-12" style="padding-top:5px;">
+
+            <div class="col-md-2">
+                @Html.TextBox("Search", (string)ViewBag.Search, new { @class = "form-control", @style = "border-radius: 10px;" }).
+            </div>
+            <div class="btn-group" role="group" aria-label="...">
+
+
+                <div class="col-md-2" style="padding-left:10px;color:black;">
+                    <button class="btn btn-primary" style="border-radius: 10px;">
+                        <i class="glyphicon glyphicon-search"></i> Search
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    }
+
+
+    <table class="table" style="font-weight:bold">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RatingValue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GreatYear)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RatingValue)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GreatYear)
+                </td>
+                <td>
+                    <a class="btn btn-primary btn-xs" href="@Url.Action("Edit", "Ratings", new { id=item.Id })" style="border-radius: 10px;" role="button"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+                    <a class="btn btn-primary btn-xs" href="@Url.Action("Details", "Ratings", new { id=item.Id })" style="border-radius: 10px;" role="button"><i class="glyphicon glyphicon-eye-open"></i> Details</a>
+                    <a class="btn btn-primary btn-xs" href="@Url.Action("Delete", "Ratings", new { id=item.Id })" style="border-radius: 10px;" role="button"><i class="glyphicon glyphicon-trash"></i> Delete</a>
+
+                </td>
+            </tr>
+        }
+
+    </table>
+    </div>

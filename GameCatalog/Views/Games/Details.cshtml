@@ -1,0 +1,57 @@
+﻿@model GameCatalog.Data.Entities.Game
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Game</h4>
+    <hr />
+    <div style="background-color:lightblue;opacity:0.9;border-radius: 25px;width:400px">
+        <dl class="dl-horizontal" style="padding-left:10px;">
+            <dt>
+                @Html.DisplayNameFor(model => model.Genre.Name)
+            </dt>
+
+            <dd style="font-weight:bold">
+                @Html.DisplayFor(model => model.Genre.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Rating.RatingValue)
+            </dt>
+
+            <dd style="font-weight:bold">
+                @Html.DisplayFor(model => model.Rating.RatingValue)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd style="font-weight:bold">
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ReleaseYear)
+            </dt>
+
+            <dd style="font-weight:bold">
+                @Html.DisplayFor(model => model.ReleaseYear)
+            </dd>
+
+        </dl>
+    </div>
+    </div>
+    <p>
+        @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")*@
+@if (User.IsInRole("Admin"))
+{
+        <a class="btn btn-primary btn-sm" href="@Url.Action("Edit", "Games", new { id = Model.Id })" style="border-radius: 10px;" role="button"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+}
+        <a class="btn btn-primary btn-sm" href="@Url.Action("Index", "Games")" style="border-radius: 10px;" role="button">Back to List</a>
+    </p>

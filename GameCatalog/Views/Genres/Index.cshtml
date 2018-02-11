@@ -1,0 +1,46 @@
+﻿@model IEnumerable<GameCatalog.Data.Entities.Genre>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 style="text-align:center;font-weight:bold">Genres</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<p><a class="btn btn-primary btn-sm" href="@Url.Action("Create", "Genres")" style="border-radius: 10px;" role="button">Create New</a></p>
+
+
+<div style="background-color:lightblue;opacity:0.9;border-radius: 25px;">
+    <table class="table" style="font-weight:bold">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    <a class="btn btn-primary btn-xs" href="@Url.Action("Edit", "Genres", new { id=item.Id })" style="border-radius: 10px;" role="button"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+                    <a class="btn btn-primary btn-xs" href="@Url.Action("Details", "Genres", new { id=item.Id })" style="border-radius: 10px;" role="button"><i class="glyphicon glyphicon-eye-open"></i> Details</a>
+                    <a class="btn btn-primary btn-xs" href="@Url.Action("Delete", "Genres", new { id=item.Id })" style="border-radius: 10px;" role="button"><i class="glyphicon glyphicon-trash"></i> Delete</a>
+
+                </td>
+            </tr>
+        }
+
+    </table>
+    </div>

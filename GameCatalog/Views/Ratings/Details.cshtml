@@ -1,0 +1,43 @@
+﻿@model GameCatalog.Data.Entities.Rating
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Rating</h4>
+    <hr />
+    <div style="background-color:lightblue;opacity:0.9;border-radius: 25px;width:400px">
+        <dl class="dl-horizontal" style="padding-left:10px;">
+            <dt>
+                @Html.DisplayNameFor(model => model.RatingValue)
+            </dt>
+
+            <dd style="font-weight:bold">
+                @Html.DisplayFor(model => model.RatingValue)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+
+            <dd style="font-weight:bold">
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.GreatYear)
+            </dt>
+
+            <dd style="font-weight:bold">
+                @Html.DisplayFor(model => model.GreatYear)
+            </dd>
+
+        </dl>
+    </div>
+    </div>
+    <p>
+        <a class="btn btn-primary btn-sm" href="@Url.Action("Edit", "Ratings",new { id = Model.Id })" style="border-radius: 10px;" role="button"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+        <a class="btn btn-primary btn-sm" href="@Url.Action("Index", "Ratings")" style="border-radius: 10px;" role="button">Back to List</a>
+    </p>
